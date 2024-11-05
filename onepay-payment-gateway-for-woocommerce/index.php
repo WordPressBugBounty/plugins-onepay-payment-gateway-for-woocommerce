@@ -3,12 +3,14 @@
 Plugin Name: onepay Payment Gateway For WooCommerce
 Plugin URI: https://github.com/onepay-srilanka/onepay-woocommerce
 Description: onepay Payment Gateway allows you to accept payment on your Woocommerce store via Visa, MasterCard, AMEX, & Lanka QR services.
-Version: 1.0.4
+Version: 1.1.0
 Author: onepay
 Author URI: https://www.onepay.lk
 License: GPLv3 or later
 WC tested up to: 8.0
 */
+// Include the block registration file
+require plugin_dir_path(__FILE__) . 'blocks/class-onepay-block-loader.php';
 
 add_action('plugins_loaded', 'woocommerce_gateway_onepay_init', 0);
 define('onepay_IMG', WP_PLUGIN_URL . "/" . plugin_basename(dirname(__FILE__)) . '/assets/img/');
@@ -300,11 +302,14 @@ function woocommerce_gateway_onepay_init() {
          **/
         function check_onepay_response(){
 
-
+			if( !isset($_REQUEST['merchant_transaction_id']) || !isset($_REQUEST['hash']) || !isset($_REQUEST['onepay_transaction_id']) ) {
+				return; // Do nothing if these parameters are missing
+			}
 		   global $woocommerce;
 
 		   echo '<p><strong>' . esc_html__('Thank you for your order.', 'onepayipg').'</strong><br/>' . esc_html__('You will be redirected soon....', 'onepay').'</p>';
 	
+
 
 			if( isset($_REQUEST['merchant_transaction_id']) && isset($_REQUEST['hash']) && isset($_REQUEST['onepay_transaction_id']) ){
 				$order_id = sanitize_text_field($_REQUEST['merchant_transaction_id']);
@@ -322,14 +327,13 @@ function woocommerce_gateway_onepay_init() {
 
 
 						$json_string=json_encode($request_args);
-
+					
                         
                         $verified = true;
                         if ($hash_string) {
 
 
 				
-
 
 							$json_hash_result = hash('sha256',$json_string);
 					
@@ -343,7 +347,7 @@ function woocommerce_gateway_onepay_init() {
 						
                         $trans_authorised = false;
 						
-						if( $order->status !=='completed' || $order->status !=='wc-completed'){
+						if( $order->status !=='completed' || $order->status !=='wc-completed' ){
 							if($verified){
 							
 								if($status==1){

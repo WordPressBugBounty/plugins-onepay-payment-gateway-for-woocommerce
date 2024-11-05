@@ -1,14 +1,14 @@
 === onepay Payment Gateway For WooCommerce ===
 Tags: payment,onepay,gateway
-Stable tag: 1.0.4
-Tested up to: 8.0
+Stable tag: 1.1.0
+Tested up to: 6.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 onepay Payment Gateway allows you to accept payment on your Woocommerce store via Visa, MasterCard, AMEX, & Lanka QR services.
 
 == Description ==
-This Payment Gateway For WooCommerce extends the functionality of WooCommerce to accept payments from Visa, MasterCard, AMEX, & Lanka QR using onepay payment Gateway. onepay Payment Gateway for WooCommerce makes your website ready to use inorder to accept Visa, MasterCard, AMEX & Lanka QR on your e-commerce store in a safe way.   onepay is most widely used payment gateway to process payments online and accepts Visa, MasterCard, Discover and other variants of cards.
+This Payment Gateway For WooCommerce extends the functionality of WooCommerce to accept payments from Visa, MasterCard, AMEX, & Lanka QR using onepay payment Gateway. onepay Payment Gateway for WooCommerce makes your website ready to use inorder to accept Visa, MasterCard, AMEX & Lanka QR on your e-commerce store in a safe way. onepay is most widely used payment gateway to process payments online and accepts Visa, MasterCard, Discover and other variants of cards.
 
 == Installation ==
 
@@ -44,12 +44,8 @@ You can select the radio button next to onepay from the list of payment gateways
 Initial plugin release
 = 1.0.1 =
 USD payments release
-= 1.0.2 =
-Version update
-= 1.0.3 =
-Version update
-= 1.0.4 =
-HPOS compatibility
+= 1.1.0 =
+Block base theme support
 
 == Frequently Asked Questions ==
 ### What Do I Need To Use The Plugin ?
@@ -61,9 +57,9 @@ HPOS compatibility
 1.	You need to create a development app in the merchant portal.
 
 2. Following TEST card can be used to test your integration.
-    * Card No : 4242424242424242
-    * Expiry Date : 10/23
-    * CCV : 123
+    * Card No : 4508750015741019
+    * Expiry Date : 01/39
+    * CCV : 100
 
 == Screenshots ==
 
