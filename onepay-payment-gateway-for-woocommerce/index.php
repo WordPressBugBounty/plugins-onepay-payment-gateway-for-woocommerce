@@ -88,7 +88,7 @@ function woocommerce_gateway_onepay_init() {
       			'title' => array(
 					'title' 			=> __('Title', 'onepayipg'),
 					'type'			=> 'text',
-					'default' 		=> __('onepay', 'onepayipg'),
+					'default' 		=> __('Bank card / Bank Account - OnePay', 'onepayipg'),
 					'description' 	=> __('This controls the title which the user sees during checkout.', 'onepayipg'),
 					'desc_tip' 		=> true
 				),
@@ -366,7 +366,7 @@ function woocommerce_gateway_onepay_init() {
 									$this->msg['class'] = 'woocommerce-error';
 									$this->msg['message'] = "Thank you for shopping with us. However, the transaction has been failed. We will keep you informed";
 									$order->add_order_note('Transaction ERROR.'.sanitize_text_field($_REQUEST['onepay_transaction_id']));
-									$order->update_status('on-hold');
+									$order->update_status('failed');
 									$woocommerce -> cart -> empty_cart();
 								}
 

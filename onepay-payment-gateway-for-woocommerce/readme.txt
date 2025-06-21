@@ -1,6 +1,6 @@
 === onepay Payment Gateway For WooCommerce ===
 Tags: payment,onepay,gateway
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 Tested up to: 6.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -46,6 +46,8 @@ Initial plugin release
 USD payments release
 = 1.1.0 =
 Block base theme support
+= 1.1.1 =
+Updated onhold error
 
 == Frequently Asked Questions ==
 ### What Do I Need To Use The Plugin ?
