@@ -3,7 +3,7 @@
 Plugin Name: onepay Payment Gateway For WooCommerce
 Plugin URI: https://github.com/onepay-srilanka/onepay-woocommerce
 Description: onepay Payment Gateway allows you to accept payment on your Woocommerce store via Visa, MasterCard, AMEX, & Lanka QR services.
-Version: 1.1.0
+Version: 1.1.2
 Author: onepay
 Author URI: https://www.onepay.lk
 License: GPLv3 or later
@@ -199,7 +199,7 @@ function woocommerce_gateway_onepay_init() {
                 'customer_email' => sanitize_email($order -> get_billing_email()),
                 'customer_phone_number' => sanitize_text_field($order -> get_billing_phone()),
                 'reference' => sanitize_text_field($order_id),
-                'amount' => floatval($order -> get_total()),
+                'amount' => number_format(floatval($order -> get_total()), 2, '.', ''),
 				'app_id' => sanitize_text_field($this->app_id),
 				'is_sdk' => 1,
 				'sdk_type' => "woocommerce",
@@ -213,7 +213,8 @@ function woocommerce_gateway_onepay_init() {
 				'app_id' => sanitize_text_field($this->app_id),
 				'is_sdk' => "1",
 				'sdk_type' => "woocommerce",
-				'authorization' => sanitize_text_field($this->auth_token)
+				'authorization' => sanitize_text_field($this->auth_token),
+				'amount' => number_format(floatval($order -> get_total()), 2, '.', ''),
 			);
 			$result_body = json_encode($hash_args,JSON_UNESCAPED_SLASHES);
 
